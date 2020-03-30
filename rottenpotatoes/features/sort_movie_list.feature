@@ -25,7 +25,20 @@ Background: movies have been added to database
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
   # your steps here
+  And I check the following ratings: PG, R, PG-13, G
+  And I press "ratings_submit"
+
+  Then I should see "2001: A Space Odyssey" before "Aladdin"
+  And I should see "Aladdin" before "Chocolat"
+  And I should see "Chocolat" before "The Help"
+
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   # your steps here
+  And I check the following ratings: PG, R, PG-13, G
+  And I press "ratings_submit"
+
+  Then I should see "2001: A Space Odyssey" before "Aladdin"
+  And I should see "Aladdin" before "Chocolat"
+  And I should see "Chocolat" before "The Help"
